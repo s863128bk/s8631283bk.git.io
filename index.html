@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>个人网页</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<!-- 大盒子 -->
+		<div class="box">
+			<div class="content">
+				<h3 class="title">个人网页</h3>
+				<div class="box-top">
+					<div class="bt-l">
+						<!-- 个人介绍 -->
+						<p>我，爱笑，爱乐，爱简单，爱热闹，爱听音乐爱交朋友，爱自由自在，爱与众同乐，爱hold不住的兴奋，也爱无厘头的搞笑，爱安安静静的自得其乐，也爱疯疯癫癫的热热闹闹，我就是这样，不管你欣赏不欣赏，我依然在自己的人生道路上跌跌撞撞而又不失姿态的走下去。
+			</p>
+						<ul>
+							<li>
+								<a href="index2.html">
+									<img src="img/1.png" alt="图片1">
+								</a>
+								
+							</li>
+							<li>
+                                <a href="index2.html">
+								<img src="img/2.png" alt="">
+                            </a>
+							</li>
+						</ul>
+					</div>
+					<div class="bt-r">
+						<img src="img/3.png" alt="">
+					</div>
+				</div>
+				<div class="box-bottom">
+					<ul>
+						<li>
+							<span>姓名：</span>
+							<p>lixi小丸子</p>
+						</li>
+						<li>
+							<span>文章：</span>
+                            <a href="index2.html">
+							<p>TED001（温和的成功）</p>
+                        </a>
+						</li>
+						<li>
+							<span>班级：</span>
+							<p>101级</p>
+						</li>
+						<li>
+							<span>院校：</span>
+							<p>狐狸院校</p>
+						</li>
+						<li>
+							<span>邮箱：</span>
+							<p>88888888@qq.com</p>
+						</li>
+					</ul>
+				</div>
+				<!-- 底部 -->
+				<div class="footer">
+					<p>版权所有： 小丸子lixi</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+</body>
+</html>
+		
+<div>div</div>
+<br>
+<p>。</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>简单留言板</title>
+</head>
+<body>
+    <h1>简单留言板</h1>
+    <form id="comment-form">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="comment">留言内容:</label>
+        <textarea id="comment" name="comment" required></textarea>
+        <br>
+        <button type="submit">提交留言</button>
+    </form>
+    <div id="comments"></div>
+
+    <script>
+        // 获取留言板容器
+        var commentsContainer = document.getElementById('comments');
+
+        // 获取表单元素
+        var form = document.getElementById('comment-form');
+
+        // 处理表单提交
+        form.onsubmit = function(event) {
+            event.preventDefault(); // 防止表单提交刷新页面
+            var name = document.getElementById('name').value;
+            var comment = document.getElementById('comment').value;
+            if (name && comment) { // 判断是否为空
+                // 保存留言
+                saveComment(name, comment);
+                // 清空输入框
+                document.getElementById('name').value = '';
+                document.getElementById('comment').value = '';
+            } else {
+                alert('姓名和留言内容不能为空。');
+            }
+        };
+
+        // 保存留言到Cookie
+        function saveComment(name, comment) {
+            var comments = getCommentsFromCookie();
+            comments.push({ name: name, comment: comment });
+            setCommentsToCookie(comments);
+            displayComments(comments);
+        }
+
+        // 从Cookie获取留言
+        function getCommentsFromCookie() {
+            var commentsString = document.cookie.replace(/(?:(?:^|.*;\s*)comments\s*=\s*([^;]*).*$)|^.*$/, '$1');
+            return commentsString ? JSON.parse(commentsString) : [];
+        }
+
+        // 将留言保存到Cookie
+        function setCommentsToCookie(comments) {
+            document.cookie = 'comments=' + JSON.stringify(comments) + '; expires=' + Date.now() + 3600000; // 有效期1小时
+        }
+
+        // 显示留言
+        function displayComments(comments) {
+            commentsContainer.innerHTML = ''; // 清空原有留言
+            comments.forEach(function(comment) {
+                var commentElement = document.createElement('div');
+                commentElement.textContent = comment.name + ': ' + comment.comment;
+                commentsContainer.appendChild(commentElement);
+            });
+        }
+
+        // 页面加载时，从Cookie加载留言
+        window.onload = function() {
+            displayComments(getCommentsFromCookie());
+        };
+    </script>
+</body>
+</html>
+<div>div</div>
+<br>
+<p>。</p>
+</body>
+</html>
+</body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>分页示例</title>
+<script>
+function goToNextPage() {
+  // 这里可以添加JavaScript代码来处理分页逻辑
+  // 例如，可以修改当前URL的查询参数来表示下一页
+  window.location.href = "index2.html"; // 替换为实际的下一页URL
+}
+</script>
+</head>
+<body>
+<h1>这是当前页面</h1>
+<button onclick="goToNextPage()">点击前往下一页</button>
+</body>
+</html>
+
+<dl>
+    <dt>咖啡</dt>
+    <dd>一种流行的饮料，通常用于提神。</dd>
+    <dt>茶</dt>
+    <dd>一种有着悠久历史的饮料，有多种风味。</dd>
+    <dt>牛奶</dt>
+    <dd>一种营养丰富的饮品，常作为早餐的一部分。</dd>
+</dl>
+
+
+</body>
+</html>
+	
 
